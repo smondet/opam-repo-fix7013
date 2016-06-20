@@ -1,0 +1,16 @@
+opam-version: "1"
+version: "4.02.3"
+src: "https://github.com/smondet/ocaml/archive/4203_fix7013.tar.gz"
+build: [
+  ["./configure" "-prefix" prefix "-with-debug-runtime"
+    "-no-curses" "-no-graph"
+    ]
+  [make "world.opt"]
+  [make "install"]
+]
+packages: [
+  "base-unix"
+  "base-bigarray"
+  "base-threads"
+]
+env: [[CAML_LD_LIBRARY_PATH = "%{lib}%/stublibs"]]
